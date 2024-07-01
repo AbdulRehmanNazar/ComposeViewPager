@@ -9,20 +9,15 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.PageSize
-import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,7 +26,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.compose.viewpager.ui.theme.ComposeViewPagerTheme
 
@@ -40,12 +34,27 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             ComposeViewPagerTheme {
                 PagerData()
+//                Test()
             }
         }
+    }
+}
+
+@Composable
+fun Test() {
+    Box(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Text(
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(4.dp),
+            text = "Made with ❤️ by Abdul Rehman",
+        )
     }
 }
 
@@ -79,11 +88,11 @@ fun PagerData() {
                 contentScale = ContentScale.Fit
             )
         }
-
         Row(
             Modifier
+                .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .padding(bottom = 10.dp),
+                .padding(bottom = 40.dp),
             verticalAlignment = Alignment.Bottom,
             horizontalArrangement = Arrangement.Center
 
@@ -100,5 +109,11 @@ fun PagerData() {
                 )
             }
         }
+        Text(
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .padding(4.dp),
+            text = "Made with ❤️ by Abdul Rehman",
+        )
     }
 }
